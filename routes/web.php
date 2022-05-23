@@ -15,13 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [Event::class, 'showEvents']);
+Route::get('/contacts', [Event::class, 'contacts']);
+Route::get('/aboutus', [Event::class, 'aboutus']);
+
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/add/event', [Event::class, 'showAddEvents']);
 Route::post('/add/event', [Event::class, 'addEvent']);

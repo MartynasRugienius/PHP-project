@@ -2,6 +2,15 @@
 
 @section('content')
 
+    <div class="container d-flex">
+        <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{$event->title}}</h5>
+                    <p class="card-text">{{$event->description}}</p>
+                </div>
+        </div>
+    </div>
 
     <div class="container">
         <form action="/register/event" method="POST">
@@ -25,7 +34,7 @@
         </form>
     </div>
 
-    <div>
+    <div class="container">
         <table class="table">
             <thead>
                 <tr>
@@ -46,5 +55,9 @@
                 @endforeach
             </tbody>
         </table>
+        <footer class="py-3 my-4 fixed-bottom">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3"></ul>
+            <p class="text-center text-muted">© 2022 Kauno Informacinių Technologijų Mokykla</p>
+        </footer>
     </div>
 @endsection

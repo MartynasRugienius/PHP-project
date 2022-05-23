@@ -33,9 +33,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        <li class="nav-item"><a class="nav-link" href="/">Pagrindinis</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contacts">Kontaktai</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/aboutus">Apie Mus</a></li>
+                        @auth
+                        <li class="nav-item"><a class="nav-link" href="/add/event">Pridėti renginį</a></li>
+                        @endauth
                     </ul>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->

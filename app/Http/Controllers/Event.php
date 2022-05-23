@@ -97,4 +97,13 @@ class Event extends Controller
 
         return view('events.event', ['event' => $event]);
     }
+    
+    public function contacts()
+    {
+        return view('contacts');
+    }
+    public function aboutus()
+    {
+        return view('aboutus');
+    }
 }
