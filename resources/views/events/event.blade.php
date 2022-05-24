@@ -55,6 +55,13 @@
                 @endforeach
             </tbody>
         </table>
+        @if($event->user_id==Auth::id())
+            <form action="/delete/event/{{$event->id}}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+            <a href="/update/event/{{$event->id}}" class="btn btn-primary">Update</a>
+        @endif
         <footer class="py-3 my-4 fixed-bottom">
             <ul class="nav justify-content-center border-bottom pb-3 mb-3"></ul>
             <p class="text-center text-muted">© 2022 Kauno Informacinių Technologijų Mokykla</p>

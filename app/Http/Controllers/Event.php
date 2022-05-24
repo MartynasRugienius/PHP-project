@@ -36,29 +36,36 @@ class Event extends Controller
 
     public function deleteEvent($id, EventModel $post)
     {
-        if (!Gate::allows('modify-event', $post)) {
-            return abort(403);
-        }
 
         $post = EventModel::find($id);
+        
+        if($post->user_id != Auth::id()){
+            abort(403);
+        }
 
         $post->delete();
 
-        return redirect()->back();
+        return redirect('/');
+    }
+
+    public function showUpdate($id){
+        $event=EventModel::find($id);
+        return view('events.update', ['event'=>$event]);
     }
 
     public function updateEvent(Request $request, $id, EventModel $post)
     {
-        if (!Gate::allows('modify-event', $post)) {
-            return abort(403);
-        }
-
+        
         $post = EventModel::find($id);
 
+        if($post->user_id != Auth::id()){
+            abort(403);
+        }
+
         $checked = $request->validate([
-            'title' => 'required|unique:posts',
-            'description' => 'required',
-            'start_date' => 'required|date',
+            'title' => 'string',
+            'description' => 'string',
+            'start_date' => 'date',
         ]);
 
         if ($request->image) {

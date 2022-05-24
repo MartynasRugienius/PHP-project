@@ -3,22 +3,23 @@
 @section('content')
 
 <div class="container">
-    <form action="/add/event" method="POST" enctype="multipart/form-data">
+    <form action="/update/event/{{$event->id}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" id="title" name="title" class="form-control">
+            <input type="text" id="title" name="title" class="form-control" value="{{$event->title}}">
         </div>
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea name="description" id="description" cols="30" rows="3" class="form-control"></textarea>
+            <textarea name="description" id="description" cols="30" rows="3" class="form-control">{{$event->description}}</textarea>
         </div>
         <div class="form-group">
             <label for="date">Starting date</label>
-            <input type="date" id="date" name="start_date" class="form-control">
+            <input type="date" id="date" name="start_date" class="form-control" value="{{$event->start_date}}">
         </div>
         <div class="form-group">
-            <label for="image">Title</label>
+            <label for="image">Image</label>
+            <img src="{{asset('storage'.$event->image)}}" alt="">
             <input type="file" id="image" name="image" class="form-control">
         </div>
         <div class="form-group">

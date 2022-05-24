@@ -26,7 +26,7 @@ Route::get('/add/event', [Event::class, 'showAddEvents']);
 Route::post('/add/event', [Event::class, 'addEvent']);
 Route::post('/delete/event/{id}', [Event::class, 'deleteEvent']);
 Route::post('/update/event/{id}', [Event::class, 'updateEvent']);
-
+Route::get('/update/event/{id}', [Event::class, 'showUpdate']);
 Route::get('/events', [Event::class, 'showEvents']);
 Route::get('/events/users', [Event::class, 'showUsersEvents']);
 Route::get('/event/{id}', [Event::class, 'showEvent']);
